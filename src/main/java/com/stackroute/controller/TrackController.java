@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "api/v1")
@@ -49,12 +48,17 @@ public class TrackController {
 
     @GetMapping("track/{trackId}")
     public ResponseEntity<?> getTrackById(@PathVariable int trackId){
-        Track track = trackService.getTrackById(trackId);
-        return new ResponseEntity<Track>(track, HttpStatus.OK);
+        return new ResponseEntity<Track>(trackService.getTrackById(trackId), HttpStatus.OK);
     }
 
     @PutMapping("track")
     public ResponseEntity<?> updateComment(@RequestBody Track track){
         return new ResponseEntity<Track>(trackService.updateComment(track),HttpStatus.OK);
+    }
+
+
+    @GetMapping("track1/{trackName}")
+    public ResponseEntity<?> getTrackByName(@PathVariable String trackName){
+        return new ResponseEntity<List<Track>>(trackService.getTrackByName(trackName), HttpStatus.OK);
     }
 }
