@@ -13,3 +13,9 @@ trackName, comments of the track.
 b.Display saved track.
 c.Update comments of saved track.
 d.Remove track
+e. trackByName
+
+2. Uses Swagger2 and Lombok
+3. Contains custom exceptions TrackNotFoundException, TrackAlreadyExistsException
+4. Contains Running Logic on Startup
+
