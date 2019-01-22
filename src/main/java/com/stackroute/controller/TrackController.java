@@ -80,8 +80,10 @@ public class TrackController {
     @PutMapping("track")
     public ResponseEntity<?> updateComment(@RequestBody Track track){
         ResponseEntity responseEntity;
+
         try {
-            responseEntity= new ResponseEntity<Track>(trackService.updateComment(track),HttpStatus.OK);
+            trackService.updateComment(track);
+            responseEntity= new ResponseEntity<String>("Success Updation",HttpStatus.OK);
         } catch (TrackNotFoundException ex) {
             responseEntity = new ResponseEntity<String>(ex.getMessage(),HttpStatus.CONFLICT);
         }
