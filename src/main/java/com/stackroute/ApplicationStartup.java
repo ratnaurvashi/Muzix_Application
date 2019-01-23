@@ -11,7 +11,6 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 @Component
-//@PropertySource("classpath:application.properties")
 public class ApplicationStartup implements ApplicationListener<ContextRefreshedEvent> {
 
     @Value("1")
